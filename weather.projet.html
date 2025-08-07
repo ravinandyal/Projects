@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page title</title>
+    
+ <style>
+
+*{
+  background:linear-gradient(to right,#36dadc,#5b86e5)
+}
+
+ #app-container {
+  width:700px;
+  height:850px;
+  margin-left:13%;
+  margin-top:30%;
+  background:white;
+  border-radius:8px;
+ }
+ 
+ #app-container h2{
+   font-size:70px;
+   margin-left:15%;
+   background:white; 
+   width:490px;
+   border:px solid;
+   padding:15px;
+
+}
+ 
+ #app-container input {
+    font-size:35px;
+    margin-left:8%;
+    margin-top:-4%;
+    width:550px;
+    height:70px;
+    padding:13px;
+    background:white;
+    outline:none;
+    border-radius:7px;
+    border:5px solid #84fbc4;
+     
+ }
+
+ #app-container button {
+     margin-top:5%;
+     margin-left:28%;
+     width:300px;
+     height:100px; 
+     font-size:35px;
+     background:#f69697 ;
+     color:white;
+     border-radius:7px;
+     border:5px solid #f69697;
+     
+     }
+ 
+ #app-container div {
+    margin-top:5%;
+    margin-left:25%; 
+    font-size:35px;
+    background:white; 
+ }
+
+#app-container .symbol {
+    font-size:100px;
+    margin-left:36%;
+    background:white;
+}
+
+#app-container #wether {
+   margin-left:0%;
+   font-size:55px;
+   text-align:center;
+   background:white;
+   width:695px;
+}
+
+#app-container #loc {
+   margin-left:0%;
+   font-size:55px;
+   text-align:center;
+   background:white;
+   width:695px;
+}
+#app-container #c {
+  background:white;
+  font-size:45px;
+  margin-left:-4%;
+}
+
+#app-container #zero {
+  background:white;
+  font-size:px;
+  margin-left:-5%;
+  
+}
+
+
+ </style>
+</head>
+<body>
+
+
+<div id ="app-container">
+ <h2>Weather app</h2>
+ <input type="text" id="city" placeholder="Enter the city">
+ <br>
+ <button onclick="getwether()">Get weather</button>
+
+<div class="symbol"> 
+<span id="name" style="background:white">00</span>
+<span id="zero" style="background:white">&#176
+</span> 
+<span id="c">C</span>
+</div>
+<div id="wether">Could</div>
+<div id="loc">Location</div>
+
+
+</div>
+
+
+<script>
+
+var input =
+document.querySelector("#city")
+
+function getwether() {
+
+if (input.value){
+var ulr = `https://api.openweathermap.org/data/2.5/weather?q=${input.value}&appid=5be1612ac27e2b38774427b3de07c2ea`
+
+var p = fetch (ulr)
+p.then(function(y){
+y.json().then(function(data){
+var {name} = data
+var {feels_like} = data.main
+var {description} = data.weather[0]
+
+var n = 
+document.querySelector("#name")
+n.innerText=Math.floor(feels_like-272)
+
+var could = 
+document.querySelector("#wether")
+could.innerText=description
+
+var l = 
+document.querySelector("#loc")
+l.innerText=name
+
+})
+.catch(function(){
+ alert("Enter the invalid location")
+})
+
+})
+}
+}
+
+</script>
+
+</body>
+</html>
