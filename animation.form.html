@@ -1,0 +1,147 @@
+<html>
+    <head>
+        <style>
+         
+          *{
+           margin:0;
+           box-sizing:border-box;
+           padding:0;
+          }
+        
+        body
+           {
+            display:flex;                             
+            justify-content:center;
+            background:pink;
+            align-items: center;
+            min-height:100vh;
+            flex-direction:column;
+            background:#23242a;
+            
+            }
+      .box
+          {
+        position:relative;
+        width:380px;
+        height:420px;        
+        background:#1c1c1c;
+        overflow:hidden;
+        margin-top:-900px;       
+      
+          }
+       .box::before
+          {
+          content:"";       
+          position: absolute;      background:linear-gradient(0deg, transparent, #45f3ff, #45f3ff);
+          width:380px;
+          height:420px;
+          top:-50%;
+          left:-50%;   
+   animation:animate 6s linear infinite;
+   transform-origin: bottom right;
+          }
+          
+    
+    @keyframes animate{
+     0%{
+        transform:rotate(0deg);
+     } 
+    100%
+      {
+      transform:rotate(360deg);
+      }       
+    }
+  
+       .box::after 
+          {
+          content:'';        
+          position:absolute;          background:linear-gradient(0deg, transparent, #45f3ff, #45f3ff);
+          width:380px;
+          height:420px;
+          top:-50%;
+          left:-50%;   
+   animation:animate 6s linear infinite;
+   transform-origin: bottom right;
+   animation-delay:-3s;
+          } 
+   form
+        { 
+      
+        position:relative;
+        width:371px;
+        height:411px;
+        margin-left:4px;
+        margin-top:4px;    
+        background:#28292d;
+        overflow:hidden;
+        border-radius:px;
+        inset:2px;
+        z-index:10;
+       }
+       
+       h2
+         {
+          color:#fff;
+          text-align:center;
+          margin-top:20px;
+         }
+   
+   .inputbox
+        {
+          text-align: center;
+          margin-top:12px;
+          padding:15px;
+        }
+    input
+      {
+        padding:5px;        
+        width:320px;
+        height:30px;
+        border:none;
+        outline:none;
+        background-color:transparent;
+        margin-top:3px;
+        border-bottom:2px solid #fff;
+        color: white;
+        
+      }
+    label
+       {       
+        margin-left:-239px;
+        color:#fff;
+       }
+    .button 
+        {
+              
+        width:300px;
+        height:40px;
+        border:none;
+        outline:none;        
+        border:2px solid #fff;
+        margin-top:65px;
+        margin-left:18px;        
+        
+        }    
+          
+          </style>
+   <body>
+      <div class="box">
+       <form>
+         <h2>Login</h2>
+          <div class="inputbox">
+       <label>Username:</label><br>       
+      <input type="text" required>
+      
+          </div>
+       <div class="inputbox">
+      <label>Password:</label><br>   
+      <input type="password" required><br>
+     
+    <div class="button">
+    <input type="button" value="SUBMIT" style="border:none; color:white;">
+   </div> 
+   </form>
+          </div>     
+      </div>
+        </body>
+</html>
